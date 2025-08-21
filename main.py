@@ -1,5 +1,5 @@
 # main.py
-import sqlite3
+import mysql.connector
 from db_config import create_database
 
 def register_complaint():
@@ -7,7 +7,7 @@ def register_complaint():
     email = input("Enter your email: ")
     complaint = input("Describe your complaint: ")
 
-    conn = sqlite3.connect('rock.db')
+    conn = mysql.connector.connect('rock.db')
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -25,7 +25,7 @@ def register_complaint():
 def track_complaint():
     complaint_id = input("\nEnter Complaint ID: ")
 
-    conn = sqlite3.connect('rock.db')
+    conn = mysql.connector.connect('rock.db')
     cursor = conn.cursor()
 
     cursor.execute('''
